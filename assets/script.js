@@ -16,3 +16,13 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+//Récupération des flèches
+let arrows = document.querySelectorAll('#banner .arrow')
+// Boucle pour mettre un eventListener sur chacune des flèches
+for (i = 0; i < arrows.length; i++) {
+	arrows[i].addEventListener('click', (event) => {
+		console.log(event.target);
+	})
+	}
+
+ 
