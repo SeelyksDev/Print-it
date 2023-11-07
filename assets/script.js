@@ -18,11 +18,58 @@ const slides = [
 ]
 //Récupération des flèches
 let arrows = document.querySelectorAll('#banner .arrow')
+
 // Boucle pour mettre un eventListener sur chacune des flèches
 for (i = 0; i < arrows.length; i++) {
 	arrows[i].addEventListener('click', (event) => {
-		console.log(event.target);
-	})
+		
 	}
+)}
 
- 
+ let variable;
+
+ const azer = "valeur"
+
+ if (azer === "valeur") {
+	console.log("validé");
+ } else {
+	console.log("c'est faux");
+ }
+
+ const array = ["a", "b", "c", "d", "e"]
+
+ for (let index = 0; index < array.length; index++) {
+	const element = array[index];
+	console.log(element);
+	watch(element)
+ }
+
+ function watch (a) {
+	console.log(a);
+ }
+
+ const title = document.getElementById('title')
+ const paragraphe = document.querySelectorAll('.paragraphe')
+ const button = document.getElementById('button')
+ const form = document.getElementById('form')
+
+ form.addEventListener("submit", (event) => {
+	event.preventDefault()
+ })
+
+ button.addEventListener("click", () => {
+
+ })
+
+ fetch("http//localhost:8080")
+ .then ((response) => {
+	return response.json()
+
+ }) 
+
+ .then((data) => {
+	console.log(data);
+ })
+
+
+
