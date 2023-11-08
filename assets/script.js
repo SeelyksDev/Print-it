@@ -17,7 +17,7 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
-//Récupération des flèches
+
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const banner = document.getElementById("banner");
@@ -28,6 +28,10 @@ let i = 0;
 
 arrowRight.addEventListener("click", () => {
   i++;
+  if (i === 4) {
+    i = 0
+    dots[i].classList.remove('dot_selected')
+  }
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
   img.src = `./assets/images/slideshow/${image}`;
