@@ -20,26 +20,30 @@ const slides = [
 //Récupération des flèches
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
-let i = -1;
+let i = 0;
 
 arrowRight.addEventListener("click", () => {
-  // Récupération de l'id "banner"
   const banner = document.getElementById("banner");
-  // Création d'un élément "img"
-  const imageAdd = document.createElement("img");
-  //Ajout d'une class "banner-img" à mon élément "img"
-  imageAdd.classList = "banner-img";
-  //Incrémentation de i qui parcours le tableau "slides"
+  const imgRight = document.createElement("img");
+  const paragrapheRight = document.querySelector("#banner p");
   i++;
-  // Récupération des valeurs choisi dans le tableau
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
-  //Ajout du chemin de l'image à mon élement img
-  imageAdd.src = `./assets/images/slideshow/${image}`;
-  // Ajoute un enfant "img" à "banner"
-  banner.appendChild(imageAdd);
+  imgRight.src = `./assets/images/slideshow/${image}`;
+  imgRight.classList = "banner-img";
+  paragrapheRight.innerHTML = tagline;
+  banner.appendChild(imgRight);
 });
 
 arrowLeft.addEventListener("click", () => {
-  console.log("it's left");
+  const banner = document.getElementById("banner");
+  const imgLeft = document.createElement("img");
+  const paragrapheLeft = document.querySelector("#banner p");
+  i--;
+  let image = slides[i].image;
+  let tagline = slides[i].tagLine;
+  imgLeft.src = `./assets/images/slideshow/${image}`;
+  imgLeft.classList = "banner-img";
+  paragrapheLeft.innerHTML = tagline;
+  banner.appendChild(imgLeft);
 });
