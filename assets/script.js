@@ -22,34 +22,81 @@ const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const banner = document.getElementById("banner");
 const paragraphe = document.querySelector("#banner p");
-const dots = document.querySelectorAll('.dots span')
+const dots = document.querySelectorAll(".dots span");
 const img = document.createElement("img");
 let i = 0;
 
-arrowRight.addEventListener("click", () => {
+/*arrowRight.addEventListener("click", () => {
   i++;
   if (i === 4) {
-    i = 0
-    dots[i].classList.remove('dot_selected')
+    i = 0;
+    dots[i + 3].classList.remove("dot_selected");
   }
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
   img.src = `./assets/images/slideshow/${image}`;
   img.classList = "banner-img";
   paragraphe.innerHTML = tagline;
-  dots[i].classList.add('dot_selected')
-  dots[i - 1].classList.remove('dot_selected')
+  dots[i].classList.add("dot_selected");
+  dots[i - 1].classList.remove("dot_selected");
   banner.appendChild(img);
 });
 
 arrowLeft.addEventListener("click", () => {
   i--;
+  if (i === -1) {
+    i = 4;
+    image = slides[i].image;
+  }
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
   img.src = `./assets/images/slideshow/${image}`;
   img.classList = "banner-img";
   paragraphe.innerHTML = tagline;
-  dots[i].classList.add('dot_selected')
-  dots[i + 1].classList.remove('dot_selected')
+  dots[i].classList.add("dot_selected");
+  dots[i + 1].classList.remove("dot_selected");
+  banner.appendChild(img);
+});
+*/
+
+arrowRight.addEventListener("click", () => {
+  i++;
+  if (i === slides.length) {
+    i = 0;
+  }
+  let image = slides[i].image;
+  let tagline = slides[i].tagLine;
+  img.src = `./assets/images/slideshow/${image}`;
+  img.classList = "banner-img";
+  paragraphe.innerHTML = tagline;
+
+  dots.forEach((dot, index) => {
+    if (index === i) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  });
+  banner.appendChild(img);
+});
+
+arrowLeft.addEventListener("click", () => {
+  i--;
+  if (i === -1) {
+    i = slides.length - 1;
+  }
+  let image = slides[i].image;
+  let tagline = slides[i].tagLine;
+  img.src = `./assets/images/slideshow/${image}`;
+  img.classList = "banner-img";
+  paragraphe.innerHTML = tagline;
+
+  dots.forEach((dot, index) => {
+    if (index === i) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  });
   banner.appendChild(img);
 });
