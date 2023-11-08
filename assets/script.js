@@ -21,8 +21,9 @@ const slides = [
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const banner = document.getElementById("banner");
-const img = document.createElement("img");
 const paragraphe = document.querySelector("#banner p");
+const dots = document.querySelectorAll('.dots span')
+const img = document.createElement("img");
 let i = 0;
 
 arrowRight.addEventListener("click", () => {
@@ -32,6 +33,8 @@ arrowRight.addEventListener("click", () => {
   img.src = `./assets/images/slideshow/${image}`;
   img.classList = "banner-img";
   paragraphe.innerHTML = tagline;
+  dots[i].classList.add('dot_selected')
+  dots[i - 1].classList.remove('dot_selected')
   banner.appendChild(img);
 });
 
@@ -42,5 +45,7 @@ arrowLeft.addEventListener("click", () => {
   img.src = `./assets/images/slideshow/${image}`;
   img.classList = "banner-img";
   paragraphe.innerHTML = tagline;
+  dots[i].classList.add('dot_selected')
+  dots[i + 1].classList.remove('dot_selected')
   banner.appendChild(img);
 });
