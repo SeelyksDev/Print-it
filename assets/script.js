@@ -20,30 +20,27 @@ const slides = [
 //Récupération des flèches
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
+const banner = document.getElementById("banner");
+const img = document.createElement("img");
+const paragraphe = document.querySelector("#banner p");
 let i = 0;
 
 arrowRight.addEventListener("click", () => {
-  const banner = document.getElementById("banner");
-  const imgRight = document.createElement("img");
-  const paragrapheRight = document.querySelector("#banner p");
   i++;
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
-  imgRight.src = `./assets/images/slideshow/${image}`;
-  imgRight.classList = "banner-img";
-  paragrapheRight.innerHTML = tagline;
-  banner.appendChild(imgRight);
+  img.src = `./assets/images/slideshow/${image}`;
+  img.classList = "banner-img";
+  paragraphe.innerHTML = tagline;
+  banner.appendChild(img);
 });
 
 arrowLeft.addEventListener("click", () => {
-  const banner = document.getElementById("banner");
-  const imgLeft = document.createElement("img");
-  const paragrapheLeft = document.querySelector("#banner p");
   i--;
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
-  imgLeft.src = `./assets/images/slideshow/${image}`;
-  imgLeft.classList = "banner-img";
-  paragrapheLeft.innerHTML = tagline;
-  banner.appendChild(imgLeft);
+  img.src = `./assets/images/slideshow/${image}`;
+  img.classList = "banner-img";
+  paragraphe.innerHTML = tagline;
+  banner.appendChild(img);
 });
