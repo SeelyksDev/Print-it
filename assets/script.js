@@ -26,52 +26,19 @@ const dots = document.querySelectorAll(".dots span");
 const img = document.createElement("img");
 let i = 0;
 
-/*arrowRight.addEventListener("click", () => {
-  i++;
-  if (i === 4) {
-    i = 0;
-    dots[i + 3].classList.remove("dot_selected");
+arrowRight.addEventListener("click", () => { // Ajout d'un événement au clic sur la flèche de droite
+  i++; // A chaques clics, on ajoute 1 à "i"
+  if (i === slides.length) { 
+    i = 0; // Si i est égal à 3 (Elements du tableau), on donne la valeur de 0 à "i"
   }
   let image = slides[i].image;
   let tagline = slides[i].tagLine;
-  img.src = `./assets/images/slideshow/${image}`;
-  img.classList = "banner-img";
-  paragraphe.innerHTML = tagline;
-  dots[i].classList.add("dot_selected");
-  dots[i - 1].classList.remove("dot_selected");
-  banner.appendChild(img);
-});
+  img.src = `./assets/images/slideshow/${image}`; // Ajout de la source de l'image
+  img.classList = "banner-img"; // Ajout d'une class à l'image
+  paragraphe.innerHTML = tagline; // Insertion de l'HTML pour la tagline 
 
-arrowLeft.addEventListener("click", () => {
-  i--;
-  if (i === -1) {
-    i = 4;
-    image = slides[i].image;
-  }
-  let image = slides[i].image;
-  let tagline = slides[i].tagLine;
-  img.src = `./assets/images/slideshow/${image}`;
-  img.classList = "banner-img";
-  paragraphe.innerHTML = tagline;
-  dots[i].classList.add("dot_selected");
-  dots[i + 1].classList.remove("dot_selected");
-  banner.appendChild(img);
-});
-*/
-
-arrowRight.addEventListener("click", () => {
-  i++;
-  if (i === slides.length) {
-    i = 0;
-  }
-  let image = slides[i].image;
-  let tagline = slides[i].tagLine;
-  img.src = `./assets/images/slideshow/${image}`;
-  img.classList = "banner-img";
-  paragraphe.innerHTML = tagline;
-
-  dots.forEach((dot, index) => {
-    if (index === i) {
+  dots.forEach((dot, index) => { // Pour chaque éléments du tableau on :
+    if (index === i) { // si l'index est egal à i on ajoute la class sinon on la supprime
       dot.classList.add("dot_selected");
     } else {
       dot.classList.remove("dot_selected");
